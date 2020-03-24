@@ -1,8 +1,8 @@
 const { Router } = require('express');
 
-const route = Router();
+const routes = Router();
 
-route.get('/', (req, res) => res.json({message: 'Oi Juliani'}));
+routes.post('/', (req, res) => res.json(req.body));
 
 
-module.exports = route;
+module.exports = routes;
