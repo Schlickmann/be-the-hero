@@ -1,7 +1,3 @@
-const express = require('express');
+const server = require('./app');
 
-const app = express();
-
-app.get('/', (req, res) => res.send('Be the hero api'));
-
-app.listen(3333);
+server.listen(process.env.PORT || 3333);
