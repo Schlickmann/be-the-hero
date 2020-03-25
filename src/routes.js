@@ -4,6 +4,7 @@ const routes = Router();
 
 const NGOSController = require('./controllers/NGOSController');
 
+routes.get('/ngos', NGOSController.index);
 routes.post('/ngos', NGOSController.store);
 
 

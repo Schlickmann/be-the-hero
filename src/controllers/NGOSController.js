@@ -7,7 +7,7 @@ class NGOSController {
 
     const id = crypto.randomBytes(4).toString('HEX');
 
-    const response = await connection('ngos').insert({
+    await connection('ngos').insert({
       id,
       name,
       email,
@@ -18,6 +18,12 @@ class NGOSController {
     });
 
     return res.json({ id });
+  }
+
+  async index(req, res) {
+    const ngos = await connection('ngos').select('*');
+
+    return res.json(ngos);
   }
 }
 
