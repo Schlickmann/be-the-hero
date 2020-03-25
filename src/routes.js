@@ -5,6 +5,9 @@ const routes = Router();
 const NGOSController = require('./controllers/NGOSController');
 const IncidentController = require('./controllers/IncidentController');
 const ProfileController = require('./controllers/ProfileController');
+const SessionController = require('./controllers/SessionController');
+
+routes.post('/sessions', SessionController.store);
 
 // Non-Governmental Organisation routes
 routes.get('/ngos', NGOSController.index);
