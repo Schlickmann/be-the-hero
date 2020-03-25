@@ -13,12 +13,18 @@ class IncidentController {
   async index(req, res) {
     const { page = 1 } = req.query;
 
+    const [total] = await connection('incidents')
+                          .count();
+
     const incidents = await connection('incidents')
                               .limit(6)
                               .offset((page - 1) * 6)
                               .select('*');
 
-    return res.json(incidents);
+    // Returning the total number of incidents
+    res.header('X-Total-Count', total['count(*)']);
+
+    return res.json({ incidents });
   }
 
   async delete(req, res) {
