@@ -17,9 +17,18 @@ class IncidentController {
                           .count();
 
     const incidents = await connection('incidents')
+                              .join('ngos', 'ngos.id', '=', 'incidents.ngo_id')
                               .limit(6)
                               .offset((page - 1) * 6)
-                              .select('*');
+                              .select([
+                                'incidents.*', 
+                                'ngos.name', 
+                                'ngos.email', 
+                                'ngos.whatsapp', 
+                                'ngos.city', 
+                                'ngos.state', 
+                                'ngos.country'
+                              ]);
 
     // Returning the total number of incidents
     res.header('X-Total-Count', total['count(*)']);
