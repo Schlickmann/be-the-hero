@@ -15,6 +15,24 @@ class IncidentController {
 
     return res.json(incidents);
   }
+
+  async delete(req, res) {
+    const { id } = req.params;
+    const ngo_id = req.headers.authorization;
+
+    const incident = await connection('incidents')
+                              .where('id', id)
+                              .select('ngo_id')
+                              .first();
+    
+    if (incident.ngo_id !== ngo_id) {
+      return res.status(401).json({ error: 'Operation not permitted.' });
+    }
+
+    await connection('incidents').where('id', id).delete();
+
+    return res.status(204).send();
+  }
 }
 
 module.exports = new IncidentController();
