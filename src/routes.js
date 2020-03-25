@@ -2,7 +2,9 @@ const { Router } = require('express');
 
 const routes = Router();
 
-routes.post('/', (req, res) => res.json(req.body));
+const NGOSController = require('./controllers/NGOSController');
+
+routes.post('/ngos', NGOSController.store);
 
 
 module.exports = routes;
