@@ -11,7 +11,12 @@ class IncidentController {
   }
 
   async index(req, res) {
-    const incidents = await connection('incidents').select('*');
+    const { page = 1 } = req.query;
+
+    const incidents = await connection('incidents')
+                              .limit(6)
+                              .offset((page - 1) * 6)
+                              .select('*');
 
     return res.json(incidents);
   }
