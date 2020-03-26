@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
+import { FiArrowLeft, FiCopy } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 
 import api from '../../services/api';
@@ -15,6 +15,7 @@ export default function Register() {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
+  const [id, setId] = useState('');
 
   const history = useHistory();
 
@@ -34,12 +35,29 @@ export default function Register() {
       const response = await api.post('/ngos', data);
       toast.success(`Yupiii, your access ID is ready: ${response.data.id}`);
 
-      history.push('/');
+      setId(response.data.id);
+      // history.push('/');
 
     } catch (error) {
       const message = error.response ? error.response.data.error : 'Something went wrong, please try again later.';
       toast.error(message);
     }
+  }
+
+  function copy() {
+    var copyText = document.getElementById("new_id");
+    var textArea = document.createElement("textarea");
+
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+
+    textArea.select();
+    textArea.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    document.execCommand("Copy");
+    textArea.remove();
+  
+    toast.success(`Your ID were copied: ${textArea.value}`);
   }
 
   return (
@@ -103,7 +121,18 @@ export default function Register() {
           <button className="button" type="submit">
             Register
           </button>
+
+          {id.trim() && (
+            <span>
+              Your ID:
+              <strong id="new_id">{id}</strong> 
+              <button type="button" onClick={copy}>
+                <FiCopy size={20} color="#e02041" />
+              </button>
+            </span>
+          )}
         </form>
+        
       </Content>
     </Container>
   )

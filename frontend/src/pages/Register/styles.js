@@ -50,7 +50,35 @@ export const Content = styled.div`
     input {
       margin-top: 8px;
     }
+
+    > span {
+      display: inline-block;
+      width: 100%;
+      margin-top: 32px;
+      font-size: 18px;
+
+      strong {
+        display: inline-block;
+        margin-left: 8px;
+      }
+
+      button {
+        height: 40px;
+        width: 40px;
+        border-radius: 8px;
+        border: 1px solid #dcdce6;
+        background: transparent;
+        margin-left: 16px;
+        transition: border-color 0.2s;
+
+        &:hover {
+          border-color: #999;
+        }
+      }
+    }
   }
+
+  
 
 
   @media (max-width: 768px) {
