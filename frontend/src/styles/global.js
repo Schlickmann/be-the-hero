@@ -17,6 +17,10 @@ export default createGlobalStyle`
     color: #333;
   }
 
+  ul {
+    list-style: none;
+  }
+  
   input, button, textarea {
     font: 400 18px 'Roboto', sans-serif;
   }
