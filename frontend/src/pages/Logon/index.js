@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {FiLogIn} from 'react-icons/fi';
 
 import logo from '../../assets/logo.svg';
@@ -18,7 +19,7 @@ export default function Logon() {
             <input type="text" placeholder="Type your ID" />
             <button className="button" type="submit">Sign In</button>
             
-            <a href="/register"><FiLogIn size={16} color="#e02041" /> Create an Account</a>
+            <Link className="back-link" to="/register"><FiLogIn size={16} color="#e02041" /> Create an Account</Link>
           </form>
         </FormSection> 
         <img src={heroes} alt="The Heroes"/>

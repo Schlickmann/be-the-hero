@@ -14,6 +14,7 @@ export default createGlobalStyle`
     font: 400 14px 'Roboto', sans-serif;
     background-color: #f0f0f5;
     -webkit-font-smoothing: antialiased;
+    color: #333;
   }
 
   input, button, textarea {
@@ -54,5 +55,25 @@ export default createGlobalStyle`
       filter: brightness(90%);
     }
   }
+
+  .back-link {
+      display: flex;
+      align-items: center;
+      margin-top: 40px;
+      color: #41414d;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+
+      svg {
+        margin-right: 8px;
+      }
+    }
 
 `;
