@@ -36,7 +36,7 @@ export default function Register() {
       toast.success(`Yupiii, your access ID is ready: ${response.data.id}`);
 
       setId(response.data.id);
-      // history.push('/');
+      
 
     } catch (error) {
       const message = error.response ? error.response.data.error : 'Something went wrong, please try again later.';
@@ -58,6 +58,7 @@ export default function Register() {
     textArea.remove();
   
     toast.success(`Your ID were copied: ${textArea.value}`);
+    history.push('/');
   }
 
   return (
@@ -76,6 +77,7 @@ export default function Register() {
             placeholder="NGO's name" 
             value={name}
             onChange={(event) => setName(event.target.value)}
+            autoComplete="new-password"
             required
           />
           <input 
@@ -83,6 +85,7 @@ export default function Register() {
             placeholder="Email" 
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            autoComplete="new-password"
             required
           />
           <input 
@@ -90,6 +93,7 @@ export default function Register() {
             placeholder="Whatsapp" 
             value={whatsapp}
             onChange={(event) => setWhatsapp(event.target.value)}
+            autoComplete="new-password"
             required
           />
           
@@ -99,6 +103,7 @@ export default function Register() {
               placeholder="City" 
               value={city}
               onChange={(event) => setCity(event.target.value)}
+              autoComplete="new-password"
               required
             />
             <input 
@@ -107,6 +112,7 @@ export default function Register() {
               style={{ width: 80 }} 
               value={state}
               onChange={(event) => setState(event.target.value)}
+              autoComplete="new-password"
               required
             />
           </InputGroup>
@@ -115,6 +121,7 @@ export default function Register() {
             placeholder="Country" 
             value={country}
             onChange={(event) => setCountry(event.target.value)}
+            autoComplete="new-password"
             required
           />
 
