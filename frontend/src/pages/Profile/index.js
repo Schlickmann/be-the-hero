@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiTrash2 } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 
@@ -13,6 +13,7 @@ export default function Profile() {
   const id = localStorage.getItem('@bethehero/ngoId');
 
   const [incidents, setIncidents] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     async function loadData() {
@@ -42,6 +43,12 @@ export default function Profile() {
     } 
   }
 
+  function handleLogOut() {
+    localStorage.clear();
+
+    history.push('/');
+  }
+
   return (
     <Container>
       <header>
@@ -50,7 +57,7 @@ export default function Profile() {
 
         <div>
           <Link className="button" to='/incidents/new'>Add incident</Link>
-          <button type="button">
+          <button type="button" onClick={handleLogOut}>
             <FiPower size={18} color="#e02041" />
           </button>
         </div>

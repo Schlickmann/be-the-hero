@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import {FiLogIn} from 'react-icons/fi';
 import { toast } from 'react-toastify';
@@ -13,6 +13,15 @@ export default function Logon() {
   const [id, setID] = useState('');
 
   const history = useHistory();
+
+  useEffect(() => {
+    const id = localStorage.getItem('@bethehero/ngoId');
+    const name = localStorage.getItem('@bethehero/ngoName');
+
+    if (id && name) {
+      history.push('/profile');
+    }
+  }, []);
 
   async function handleLogon(event) {
     event.preventDefault();

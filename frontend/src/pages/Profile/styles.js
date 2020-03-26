@@ -43,14 +43,10 @@ export const Container = styled.div`
       }
     }
 
-    @media (max-width: 440px) {
-      flex-direction: column;
-      /* justify-content: center;
-      align-items: center; */
-
+    @media (max-width: 768px) {
       span {
         width: 100%;
-        margin: 16px 0;
+        margin: 16px 10px;
         text-align: center;
       }
 
@@ -62,6 +58,15 @@ export const Container = styled.div`
           margin-left: 0;
           margin-bottom: 16px;
         }
+      }
+
+    }
+
+    @media (max-width: 440px) {
+      flex-direction: column;
+
+      span {
+        margin: 16px 0;
       }
 
     }
