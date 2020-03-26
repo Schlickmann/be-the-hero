@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  max-width: 1180px;
   padding: 0 30px;
   margin: 32px auto;
+  width: 100%;
+  max-width: 1180px;
+  height: 100vh;
 
   header {
     display: flex;
     align-items: center;
+    width: 100%;
 
     span {
       font-size: 20px;
@@ -19,24 +21,49 @@ export const Container = styled.div`
       height: 64px;
     }
 
-    a {
-      width: 260px;
+    div {
       margin-left: auto;
-      margin-top: 0;
+      a {
+        width: 260px;
+        margin-top: 0;
+      }
+
+      button {
+        height: 60px;
+        width: 60px;
+        border-radius: 4px;
+        border: 1px solid #dcdce6;
+        background: transparent;
+        margin-left: 16px;
+        transition: border-color 0.2s;
+
+        &:hover {
+          border-color: #999;
+        }
+      }
     }
 
-    button {
-      height: 60px;
-      width: 60px;
-      border-radius: 4px;
-      border: 1px solid #dcdce6;
-      background: transparent;
-      margin-left: 16px;
-      transition: border-color 0.2s;
+    @media (max-width: 440px) {
+      flex-direction: column;
+      /* justify-content: center;
+      align-items: center; */
 
-      &:hover {
-        border-color: #999;
+      span {
+        width: 100%;
+        margin: 16px 0;
+        text-align: center;
       }
+
+      div {
+        width: 100%;
+        display: flex;
+
+        a {
+          margin-left: 0;
+          margin-bottom: 16px;
+        }
+      }
+
     }
   }
 
@@ -84,5 +111,9 @@ export const Container = styled.div`
          font-size: 16px;
        }
      }
+
+     @media (max-width: 440px) {
+      grid-template-columns: 1fr;
+    }
    }
 `;
