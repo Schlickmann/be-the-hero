@@ -6,7 +6,9 @@ import { Feather } from '@expo/vector-icons';
 import logo from '../../assets/logo.png';
 import styles from './styles';
 
-export default function Detail({ navigation }) {
+export default function Detail({ route, navigation }) {
+  const { id } = route.params;
+  
   const message = `Hello Green Peace, I am contacting you willing to help on the case "Amazon's Fire" with the amount of CA150.00`;
 
   function navigateBack() {

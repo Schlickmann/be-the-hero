@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Image } from 'react-native';
 
+import { incidentsContext } from '../../contexts/IncidentsContext';
 import IncidentList from '../../components/IncidentList';
 import logo from '../../assets/logo.png';
 import styles from './styles';
 
 export default function Incidents() {
+  const { state } = useContext(incidentsContext);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={logo} />
         <Text style={styles.headerText}>
-          Total of <Text style={styles.headerTextBold}>0 cases</Text>
+          Total of <Text style={styles.headerTextBold}>{state.total} cases</Text>
         </Text>
       </View>
 
