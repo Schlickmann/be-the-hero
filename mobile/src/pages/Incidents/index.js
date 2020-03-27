@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, Image, ActivityIndicator } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 import { incidentsContext } from '../../contexts/IncidentsContext';
 import IncidentList from '../../components/IncidentList';
@@ -24,7 +24,6 @@ export default function Incidents() {
       <Text style={styles.description}>
         Pick one or more cases below and save the day. 
       </Text>
-      
       <IncidentList />
     </View>
   );

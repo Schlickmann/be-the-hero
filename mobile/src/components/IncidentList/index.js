@@ -36,24 +36,6 @@ export default function IncidentList() {
     loadIncidents();
   }, []);
 
-  async function refetchIncidents() {
-    if (loading) return;
-
-    getRequest();
-    
-    try {
-      const { data, headers } = await api.get('/incidents', {
-        params: { page: 1 }
-      });
-
-      setIncidents([...data.incidents]);
-      getSuccess(headers['x-total-count'], page + 1);
-      
-    } catch (error) {
-      errorMessage();
-    }
-  }
-
   function errorMessage() {
     getFailure();
     Alert.alert('Error', 'Something went wrong, please try again later');
@@ -71,8 +53,6 @@ export default function IncidentList() {
         showsVerticalScrollIndicator={false}
         onEndReached={loadIncidents}
         onEndReachedThreshold={0.2}
-        refreshing={loading}
-        onRefresh={refetchIncidents}
         
         renderItem={({ item : incident }) => (
           <View style={styles.incident}>
