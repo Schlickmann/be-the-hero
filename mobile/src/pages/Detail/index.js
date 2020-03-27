@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, Text, Linking } from 'react-native';
+import { ScrollView, View, Image, TouchableOpacity, Text, Linking } from 'react-native';
 import * as MailComposer from 'expo-mail-composer';
 import { Feather } from '@expo/vector-icons';
 
@@ -40,32 +40,40 @@ export default function Detail({ route, navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.incident}>
-        <Text style={[styles.incidentProperty, { marginTop: 0 }]}>NGO:</Text>
-        <Text style={styles.incidentValue}>{incident.name} from {incident.city}, {incident.state} - {incident.country}</Text>
+      <ScrollView 
+        style={styles.wrapper}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.incident}>
+          <Text style={[styles.incidentProperty, { marginTop: 0 }]}>NGO:</Text>
+          <Text style={styles.incidentValue}>{incident.name} from {incident.city}, {incident.state} - {incident.country}</Text>
 
-        <Text style={styles.incidentProperty}>CASE:</Text>
-        <Text style={styles.incidentValue}>{incident.title}</Text>
+          <Text style={styles.incidentProperty}>CASE:</Text>
+          <Text style={styles.incidentValue}>{incident.title}</Text>
 
-        <Text style={styles.incidentProperty}>AMOUNT:</Text>
-        <Text style={styles.incidentValue}>{amount}</Text>
-      </View>
+          <Text style={styles.incidentProperty}>DESCRIPTION:</Text>
+          <Text style={styles.incidentValue}>{incident.description}</Text>
 
-      <View style={styles.contactBox}>
-        <Text style={styles.heroTitle}>Save the day!</Text>
-        <Text style={styles.heroTitle}>Be The Hero of this case.</Text>
-
-        <Text style={styles.heroDescription}>Contact</Text>
-
-        <View style={styles.actions}>
-          <TouchableOpacity style={styles.action} onPress={sendWhatsApp}>
-            <Text style={styles.actionText}>WhatsApp</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.action} onPress={sendMail}>
-            <Text style={styles.actionText}>Email</Text>
-          </TouchableOpacity>
+          <Text style={styles.incidentProperty}>AMOUNT:</Text>
+          <Text style={styles.incidentValue}>{amount}</Text>
         </View>
-      </View>
+
+        <View style={styles.contactBox}>
+          <Text style={styles.heroTitle}>Save the day!</Text>
+          <Text style={styles.heroTitle}>Be The Hero of this case.</Text>
+
+          <Text style={styles.heroDescription}>Contact</Text>
+
+          <View style={styles.actions}>
+            <TouchableOpacity style={styles.action} onPress={sendWhatsApp}>
+              <Text style={styles.actionText}>WhatsApp</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.action} onPress={sendMail}>
+              <Text style={styles.actionText}>Email</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 }

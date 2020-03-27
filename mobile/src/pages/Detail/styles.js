@@ -10,8 +10,8 @@ export default StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
-
+    alignItems: 'center',
+    marginBottom: 20
   },
   headerText: {
     fontSize: 15,
@@ -72,5 +72,8 @@ export default StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 15,
+  },
+  wrapper: {
+    marginBottom: 20
   }
 });
