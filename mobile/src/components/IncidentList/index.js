@@ -28,8 +28,8 @@ export default function IncidentList() {
     loadIncidents();
   }, []);
   
-  function getDetail(id) {
-    navigation.navigate('Detail', { id });
+  function getDetail(incident) {
+    navigation.navigate('Detail', { incident });
   }
 
   return (
@@ -54,7 +54,7 @@ export default function IncidentList() {
               }).format(incident.value)}
             </Text>
 
-            <TouchableOpacity style={styles.detailButton} onPress={() => getDetail(incident.id)}>
+            <TouchableOpacity style={styles.detailButton} onPress={() => getDetail(incident)}>
               <Text style={styles.detailButtonText}>See more details</Text>
               <Feather name="arrow-right" size={16} color="#e02041" />
             </TouchableOpacity>

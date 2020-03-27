@@ -7,9 +7,13 @@ import logo from '../../assets/logo.png';
 import styles from './styles';
 
 export default function Detail({ route, navigation }) {
-  const { id } = route.params;
+  const { incident } = route.params;
+  const amount = Intl.NumberFormat('en', { 
+                    style: 'currency', 
+                    currency: 'CAD' 
+                  }).format(incident.value);
   
-  const message = `Hello Green Peace, I am contacting you willing to help on the case "Amazon's Fire" with the amount of CA150.00`;
+  const message = `Hello ${incident.name}, I am contacting you willing to help on the case "${incident.title}" with the amount of ${amount}`;
 
   function navigateBack() {
     navigation.goBack();
@@ -17,14 +21,14 @@ export default function Detail({ route, navigation }) {
 
   function sendMail() {
     MailComposer.composeAsync({
-      subject: `Case's hero: Amazon Fire`,
-      recipients: ['juliani.schlickmann@gmail.com'],
+      subject: `Case's hero: ${incident.title}`,
+      recipients: [incident.email],
       body: message
     });
   }
 
   function sendWhatsApp() {
-    Linking.openURL(`whatsapp://send?phone=17787513207&text=${message}`);
+    Linking.openURL(`whatsapp://send?phone=${incident.whatsapp}&text=${message}`);
   }
 
   return (
@@ -38,13 +42,13 @@ export default function Detail({ route, navigation }) {
 
       <View style={styles.incident}>
         <Text style={[styles.incidentProperty, { marginTop: 0 }]}>NGO:</Text>
-        <Text style={styles.incidentValue}>Green Peace</Text>
+        <Text style={styles.incidentValue}>{incident.name}</Text>
 
         <Text style={styles.incidentProperty}>CASE:</Text>
-        <Text style={styles.incidentValue}>Amazon Fires</Text>
+        <Text style={styles.incidentValue}>{incident.title}</Text>
 
         <Text style={styles.incidentProperty}>AMOUNT:</Text>
-        <Text style={styles.incidentValue}>CA1,200,00.00</Text>
+        <Text style={styles.incidentValue}>{amount}</Text>
       </View>
 
       <View style={styles.contactBox}>
