@@ -32,4 +32,9 @@ export default StyleSheet.create({
     lineHeight: 24,
     color: '#737380'
   },
+  loading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });

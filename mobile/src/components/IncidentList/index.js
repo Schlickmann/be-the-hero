@@ -3,30 +3,61 @@ import { useNavigation } from '@react-navigation/native';
 import { FlatList, View, Text, TouchableOpacity, Alert } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
-import { incidentsContext, Types } from '../../contexts/IncidentsContext';
+import { incidentsContext } from '../../contexts/IncidentsContext';
 import api from '../../services/api';
 import styles from './styles';
 
 export default function IncidentList() {
   const navigation = useNavigation();
   const [incidents, setIncidents] = useState([]);
-  const { dispatch } = useContext(incidentsContext);
+  const { getRequest, getSuccess, getFailure, loading, total, page } = useContext(incidentsContext);
+
+  async function loadIncidents() {
+    if (loading) return;
+
+    if (total > 0 && incidents.length === total) return;
+
+    getRequest();
+    
+    try {
+      const { data, headers } = await api.get('/incidents', {
+        params: { page }
+      });
+
+      setIncidents([...incidents, ...data.incidents]);
+      getSuccess(headers['x-total-count'], page + 1);
+      
+    } catch (error) {
+      errorMessage();
+    }
+  }
 
   useEffect(() => {
-    async function loadIncidents() {
-      try {
-        const { data, headers } = await api.get('/incidents');
-
-        setIncidents(data.incidents);
-
-        dispatch({ type: Types.ON_TOTAL_CHANGE, payload: { total: headers['x-total-count'] }});
-      } catch (error) {
-        Alert.alert('Error', 'Something went wrong, please try again later');
-      }
-    }
-
     loadIncidents();
   }, []);
+
+  async function refetchIncidents() {
+    if (loading) return;
+
+    getRequest();
+    
+    try {
+      const { data, headers } = await api.get('/incidents', {
+        params: { page: 1 }
+      });
+
+      setIncidents([...data.incidents]);
+      getSuccess(headers['x-total-count'], page + 1);
+      
+    } catch (error) {
+      errorMessage();
+    }
+  }
+
+  function errorMessage() {
+    getFailure();
+    Alert.alert('Error', 'Something went wrong, please try again later');
+  }
   
   function getDetail(incident) {
     navigation.navigate('Detail', { incident });
@@ -38,6 +69,11 @@ export default function IncidentList() {
         data={incidents}
         keyExtractor={incident => String(incident.id)}
         showsVerticalScrollIndicator={false}
+        onEndReached={loadIncidents}
+        onEndReachedThreshold={0.2}
+        refreshing={loading}
+        onRefresh={refetchIncidents}
+        
         renderItem={({ item : incident }) => (
           <View style={styles.incident}>
             <Text style={styles.incidentProperty}>NGO:</Text>

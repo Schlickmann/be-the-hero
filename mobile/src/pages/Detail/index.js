@@ -42,7 +42,7 @@ export default function Detail({ route, navigation }) {
 
       <View style={styles.incident}>
         <Text style={[styles.incidentProperty, { marginTop: 0 }]}>NGO:</Text>
-        <Text style={styles.incidentValue}>{incident.name}</Text>
+        <Text style={styles.incidentValue}>{incident.name} from {incident.city}, {incident.state} - {incident.country}</Text>
 
         <Text style={styles.incidentProperty}>CASE:</Text>
         <Text style={styles.incidentValue}>{incident.title}</Text>
