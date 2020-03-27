@@ -57,7 +57,14 @@ This project was developed with the following technologies:
 
 ## 🔖 Layout
 
-:construction: In progress.. :construction:
+
+|     :---:    |     :---:      |     :---:     |
+| <img alt="Be The Hero" src="./.github/01.PNG" width="200px" />  
+| <img alt="Main" src="./.github/02.PNG" width="200px" />  
+| <img alt="Detail" src="./.github/03.PNG" width="200px" />    
+| <img alt="Detail 2" src="./.github/04.jpeg" width="200px" />
+| <img alt="Be The Hero" src="./.github/05.PNG" width="200px" />   
+| <img alt="Email" src="./.github/06.PNG" width="200px" /> |
 
 ## 🤔 How to contribute
 
