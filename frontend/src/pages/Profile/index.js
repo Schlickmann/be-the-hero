@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 import logo from '../../assets/logo.svg';
 
-import { Container, ButtonGroup } from './styles';
+import { Container } from './styles';
 
 export default function Profile() {
   const name = localStorage.getItem('@bethehero/ngoName');
@@ -53,7 +53,7 @@ export default function Profile() {
     <Container>
       <header>
         <img src={logo} alt="Be The Hero"/>
-        <span>Welcome, {name}!</span>
+        <span>Welcome, {name.trim()}!</span>
 
         <div>
           <Link className="button" to='/incidents/new'>Add incident</Link>

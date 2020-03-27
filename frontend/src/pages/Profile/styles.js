@@ -43,7 +43,7 @@ export const Container = styled.div`
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
       span {
         width: 100%;
         margin: 16px 10px;
@@ -53,10 +53,10 @@ export const Container = styled.div`
       div {
         width: 100%;
         display: flex;
+        align-items: center;
 
         a {
           margin-left: 0;
-          margin-bottom: 16px;
         }
       }
 
@@ -67,6 +67,12 @@ export const Container = styled.div`
 
       span {
         margin: 16px 0;
+      }
+
+      div {
+        a, button {
+          margin-bottom: 16px;
+        }
       }
 
     }
