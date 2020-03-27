@@ -72,7 +72,17 @@ This project was developed with the following technologies:
   </tbody>
 </table>
 
-[Check it out: Mobile App](https://exp.host/@schlickmann/bethehero)
+###Run the mobile app using your onw devide ✌🏻📱
+
+<p>Download the Expo app</p>
+
+- [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA)
+- [App Store](https://apps.apple.com/ca/app/expo-client/id982107779)
+
+- Access [Check it out: Mobile App](https://exp.host/@schlickmann/bethehero)
+- Scan the QR Code
+
+And that's it! 😊
 
 ## 🤔 How to contribute
 
