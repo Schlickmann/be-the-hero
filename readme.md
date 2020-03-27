@@ -57,7 +57,20 @@ This project was developed with the following technologies:
 
 ## 🔖 Layout
 
-| <img alt="Be The Hero" src="./.github/01.PNG" width="200px" />  | <img alt="Main" src="./.github/02.PNG" width="200px" />  |  <img alt="Detail" src="./.github/03.PNG" width="200px" />    	 | <img alt="Detail 2" src="./.github/04.jpeg" width="200px" />| <img alt="Be The Hero" src="./.github/05.PNG" width="200px" />   | <img alt="Email" src="./.github/06.PNG" width="200px" /> |
+<table>
+  <tbody>
+	 <tr>
+	   <td><img alt="Be The Hero" src="./.github/01.PNG" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/02.PNG" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/03.PNG" width="200px" /></td>
+	 </tr>
+	  <tr>
+	   <td><img alt="Be The Hero" src="./.github/04.jpeg" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/05.PNG" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/06.PNG" width="200px" /></td>
+	 </tr>
+  </tbody>
+</table>
 
 ## 🤔 How to contribute
 
