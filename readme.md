@@ -72,7 +72,7 @@ This project was developed with the following technologies:
   </tbody>
 </table>
 
-###Run the mobile app using your onw devide ✌🏻📱
+### Run the mobile app using your onw devide ✌🏻📱
 
 <p>Download the Expo app</p>
 
