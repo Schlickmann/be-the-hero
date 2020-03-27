@@ -15,7 +15,7 @@ export default function IncidentList() {
   async function loadIncidents() {
     if (loading) return;
 
-    if (total > 0 && incidents.length === total) return;
+    if (total > 0 && parseInt(incidents.length) === parseInt(total)) return;
 
     getRequest();
     
@@ -36,6 +36,24 @@ export default function IncidentList() {
     loadIncidents();
   }, []);
 
+  async function refetchIncidents() {
+    if (loading) return;
+
+    getRequest();
+
+    try {
+      const { data, headers } = await api.get('/incidents', {
+        params: { page: 1 }
+      });
+
+      setIncidents([...data.incidents]);
+      getSuccess(headers['x-total-count'], 2);
+
+    } catch (error) {
+      errorMessage();
+    }
+  }
+
   function errorMessage() {
     getFailure();
     Alert.alert('Error', 'Something went wrong, please try again later');
@@ -53,7 +71,9 @@ export default function IncidentList() {
         showsVerticalScrollIndicator={false}
         onEndReached={loadIncidents}
         onEndReachedThreshold={0.2}
-        
+        refreshing={loading}
+        onRefresh={refetchIncidents}
+
         renderItem={({ item : incident }) => (
           <View style={styles.incident}>
             <Text style={styles.incidentProperty}>NGO:</Text>
