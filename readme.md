@@ -53,7 +53,7 @@ This project was developed with the following technologies:
 
 <p>Be The Hero is an application created with the purpose of helping Non-Governmental Organizations to share their cases with people around the world.</p>
 
-[Check it out](https://bethehero-schlickmann.netlify.com/)
+[Check it out: Web app](https://bethehero-schlickmann.netlify.com/)
 
 ## 🔖 Layout
 
@@ -72,7 +72,7 @@ This project was developed with the following technologies:
   </tbody>
 </table>
 
-[Mobile App](https://exp.host/@schlickmann/bethehero)
+[Check it out: Mobile App](https://exp.host/@schlickmann/bethehero)
 
 ## 🤔 How to contribute
 
