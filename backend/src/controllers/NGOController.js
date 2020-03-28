@@ -1,11 +1,11 @@
-const crypto = require('crypto');
+const generateUniqueId = require('../utils/generateUniqueId');
 const connection = require('../database/connection');
 
 class NGOSController {
   async store(req, res) {
     const { name, email, whatsapp, city, state, country } = req.body;
 
-    const id = crypto.randomBytes(4).toString('HEX');
+    const id = generateUniqueId();
 
     await connection('ngos').insert({
       id,
