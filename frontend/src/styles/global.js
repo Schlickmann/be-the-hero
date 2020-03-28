@@ -18,7 +18,11 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     color: #333;
   }
-
+  
+  #root {
+    height: 100vh;
+  }
+  
   ul {
     list-style: none;
   }

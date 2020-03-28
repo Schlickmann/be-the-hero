@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 import logo from '../../assets/logo.svg';
 
-import { Container } from './styles';
+import { Container, EmptyProfile, Header, Inbox } from './styles';
 
 export default function Profile() {
   const name = localStorage.getItem('@bethehero/ngoName');
@@ -51,7 +51,7 @@ export default function Profile() {
 
   return (
     <Container>
-      <header>
+      <Header>
         <img src={logo} alt="Be The Hero"/>
         <span>Welcome, {name.trim()}!</span>
 
@@ -61,27 +61,34 @@ export default function Profile() {
             <FiPower size={18} color="#e02041" />
           </button>
         </div>
-      </header>
+      </Header>
 
       <h1>Current incidents</h1>
 
-      <ul>
-        {incidents.map(incident => (
-          <li key={incident.id}>
-            <strong>CASE: </strong>
-            <p>{incident.title}</p>
-            <strong>DESCRIPTION: </strong>
-            <p>{incident.description}</p>
+      {incidents.length > 0 ? (
+        <ul>
+          {incidents.map(incident => (
+            <li key={incident.id}>
+              <strong>CASE: </strong>
+              <p>{incident.title}</p>
+              <strong>DESCRIPTION: </strong>
+              <p>{incident.description}</p>
 
-            <strong>VALUE NEEDED: </strong>
-            <p>{Intl.NumberFormat('en', { style: 'currency', currency: 'CAD'}).format(incident.value)}</p>
+              <strong>VALUE NEEDED: </strong>
+              <p>{Intl.NumberFormat('en', { style: 'currency', currency: 'CAD'}).format(incident.value)}</p>
 
-            <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
-              <FiTrash2 size={20}  color="#a8a8b3" />
-            </button>
-          </li>
-        ))}
-      </ul>
+              <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
+                <FiTrash2 size={20}  color="#a8a8b3" />
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <EmptyProfile>
+          <Inbox />
+          <span>Empty profile, you have not created any case yet!</span>
+        </EmptyProfile>
+      )}
     </Container>
   );
 }
