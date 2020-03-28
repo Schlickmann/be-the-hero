@@ -46,25 +46,43 @@ This project was developed with the following technologies:
 
 - [Node.js](https://nodejs.org/en/) 
 - [React](https://reactjs.org)
-- [React Native](https://facebook.github.io/react-native/) in coming :construction:
-- [Expo](https://expo.io/) in coming :construction:
+- [React Native](https://facebook.github.io/react-native/)
+   - [Expo](https://expo.io/)
 
 ## 💻 Project
 
 <p>Be The Hero is an application created with the purpose of helping Non-Governmental Organizations to share their cases with people around the world.</p>
 
-[Check it out](https://bethehero-schlickmann.netlify.com/)
+[Check it out: Web app](https://bethehero-schlickmann.netlify.com/)
 
 ## 🔖 Layout
 
+<table>
+  <tbody>
+	 <tr>
+	   <td><img alt="Be The Hero" src="./.github/01.PNG" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/02.PNG" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/03.PNG" width="200px" /></td>
+	 </tr>
+	  <tr>
+	   <td><img alt="Be The Hero" src="./.github/04.jpeg" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/05.PNG" width="200px" /></td>
+	   <td><img alt="Be The Hero" src="./.github/06.PNG" width="200px" /></td>
+	 </tr>
+  </tbody>
+</table>
 
-|     :---:    |     :---:      |     :---:     |
-| <img alt="Be The Hero" src="./.github/01.PNG" width="200px" />  
-| <img alt="Main" src="./.github/02.PNG" width="200px" />  
-| <img alt="Detail" src="./.github/03.PNG" width="200px" />    
-| <img alt="Detail 2" src="./.github/04.jpeg" width="200px" />
-| <img alt="Be The Hero" src="./.github/05.PNG" width="200px" />   
-| <img alt="Email" src="./.github/06.PNG" width="200px" /> |
+### Run the mobile app using your onw devide ✌🏻📱
+
+<p>Download the Expo app</p>
+
+- [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_CA)
+- [App Store](https://apps.apple.com/ca/app/expo-client/id982107779)
+
+- Access [Check it out: Mobile App](https://exp.host/@schlickmann/bethehero)
+- Scan the QR Code
+
+And that's it! 😊
 
 ## 🤔 How to contribute
 
