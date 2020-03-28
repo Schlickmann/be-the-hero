@@ -4,6 +4,7 @@ const connection = require('../../src/database/connection');
 
 describe('NGO', () => {
   beforeEach(async () => {
+    await connection.migrate.rollback();
     await connection.migrate.latest();
   });
 
@@ -25,5 +26,25 @@ describe('NGO', () => {
     
     expect(response.body).toHaveProperty('id');
     expect(response.body.id).toHaveLength(8);
+  });
+
+  it('should be able to login into the system', async () => {
+    const { body: { id }} = await request(app)
+                              .post('/ngos')
+                              .send({
+                                name: "Green Peace1",
+                                email: "greenpeace@ngo.com",
+                                whatsapp: "8009999999",
+                                city: "Vancouver",
+                                state: "BC",
+                                country: "Canada"
+                              });
+    
+    const response = await request(app)
+                        .post('/sessions')
+                        .send({ id });
+    
+    expect(response.body).toHaveProperty('name');
+    expect(response.body.name).toBe("Green Peace1");
   });
 });
