@@ -2,24 +2,34 @@ const { Router } = require('express');
 
 const routes = Router();
 
-const NGOSController = require('./controllers/NGOSController');
+// Controllers
+const NGOController = require('./controllers/NGOController');
 const IncidentController = require('./controllers/IncidentController');
 const ProfileController = require('./controllers/ProfileController');
 const SessionController = require('./controllers/SessionController');
 
-routes.post('/sessions', SessionController.store);
+// Validators
+const NGOValidator = require('./validators/NGO');
+const ProfileValidator = require('./validators/Profile');
+const IncidentValidator = require('./validators/Incident');
+const SessionValidator = require('./validators/Session');
+
+routes.post('/sessions', SessionValidator.validStore(), SessionController.store);
 
 // Non-Governmental Organisation routes
-routes.get('/ngos', NGOSController.index);
-routes.post('/ngos', NGOSController.store);
+routes.get('/ngos', NGOController.index);
+
+routes.post('/ngos', NGOValidator.validStore(), NGOController.store);
 
 // NGO incidents
-routes.get('/profile', ProfileController.index);
+routes.get('/profile', ProfileValidator.validIndex(), ProfileController.index);
 
 // Incident routes
-routes.get('/incidents', IncidentController.index);
-routes.post('/incidents', IncidentController.store);
-routes.delete('/incidents/:id', IncidentController.delete);
+routes.get('/incidents', IncidentValidator.validIndex(), IncidentController.index);
+
+routes.post('/incidents', IncidentValidator.validStore(), IncidentController.store);
+
+routes.delete('/incidents/:id', IncidentValidator.validDelete(), IncidentController.delete);
 
 
 module.exports = routes;
